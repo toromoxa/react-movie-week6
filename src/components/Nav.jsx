@@ -13,12 +13,6 @@ const Nav = () => {
                     alt="" />
                 </figure>
                 <ul className="nav__link--list">
-                    <li className="nav__list--item click link--smol">
-                        <a href="#" className="item__link">Home</a>
-                    </li>
-                    <li className="nav__list--item click link--smol">
-                        <a href="#" className="item__link">New Releases</a>
-                    </li>
                     <li className="nav__list--item click login">
                         <a href="#" className="item__link item__link--primary">Sign In</a>
                     </li>

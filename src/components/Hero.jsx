@@ -28,11 +28,11 @@ const Hero = () => {
     async function fetchMovies() {
         const { data } = await axios.get(`http://www.omdbapi.com/?s=${searchTerm}&apikey=c24e8ce7&`)
         setMovies(data.Search)
-        console.log(movies)
     }
-
+    
     useEffect(() => {
         fetchMovies();
+        console.log(movies)
     }, [])
 
   return (
@@ -46,7 +46,6 @@ const Hero = () => {
             searchTerm={searchTerm}
             movies={movies} />
         </div>
-            <LoginModal />
             <Footer />
     </div>
   )
