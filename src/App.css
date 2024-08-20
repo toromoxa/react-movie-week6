@@ -161,7 +161,7 @@ nav {
 }
 
 .search__input--wrapper {
-    width: 100%;
+    width: 80%;
     max-width: 600px;
     position: relative;
     border-radius: 50px;
@@ -202,7 +202,7 @@ nav {
 .landing__space {
     background-image: url(./assets/spotlight.jpg);
     background-size: cover;
-    height: 80vh;
+    background-position-y: -1000%;
 }
 
 /* MODAL */
