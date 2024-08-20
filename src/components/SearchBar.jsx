@@ -23,7 +23,7 @@ const SearchBar = ({ onSearch, fetchMovies }) => {
                     <input 
                         className='movie__search'
                         type="text" 
-                        placeholder='Movie name...'
+                        placeholder='Search by movie title...'
                         value={input}
                         onChange={handleInputChange}
                         onKeyDown={(event) => {

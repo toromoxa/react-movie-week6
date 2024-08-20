@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import Skeleton from "./Skeleton";
+import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
+import ShareIcon from '@mui/icons-material/Share';
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import ThumbDownIcon from '@mui/icons-material/ThumbDown';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
 const GiantMovieCard = () => {
   const { id } = useParams();
@@ -35,17 +39,22 @@ const GiantMovieCard = () => {
             alt="movie poster"
           />
         </figure>
-        <div className="horizontal__break"></div>
         <div className="bigmovie__info--box">
           <h2 className="bigmovie__title">{movieDetails.Title}</h2>
-          <h5 className="runtime">{movieDetails.Runtime}</h5>
-          <h5 className="genre">{movieDetails.Genre}</h5>
           <p className="plot">{movieDetails.Plot}</p>
-          <h5 className="actors">Starring: {movieDetails.Actors}</h5>
-          <h5 className="director">Directed by: {movieDetails.Director}</h5>
-          <h3 className="rated">{movieDetails.Rated}</h3>
-          <h3 className="year">{movieDetails.Year}</h3>
+          <span className="actors">Starring: {movieDetails.Actors}</span>
+          <span className="director">Directed by: {movieDetails.Director}</span>
+          <span className="rated">Rated: {movieDetails.Rated}</span>
+          <span className="runtime">{movieDetails.Runtime}</span> <span className="genre">{movieDetails.Genre}</span>
+          <span className="year">Released: {movieDetails.Year}</span>
         </div>
+      </div>
+      <div className="movie__actions">
+        <button className="action-btn"><PlayCircleOutlineIcon sx={{ fontSize: 50 }} /></button>
+        <button className="action-btn"><FavoriteIcon sx={{ fontSize: 50 }} /></button>
+        <button className="action-btn"><ShareIcon sx={{ fontSize: 50 }} /></button>
+        <button className="action-btn"><ThumbUpIcon sx={{ fontSize: 50 }} /></button>
+        <button className="action-btn"><ThumbDownIcon sx={{ fontSize: 50 }} /></button>
       </div>
     </div>
   );

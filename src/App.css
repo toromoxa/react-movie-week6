@@ -125,7 +125,6 @@ nav {
 .bigmovie__landing {
     background-image: url(./assets/spotlight.jpg);
     background-size: contain;
-    background-position-y: -1%;
     padding-bottom: 48px;
 }
 
@@ -254,6 +253,7 @@ nav {
     align-items: center;
     transition: all 300ms ease;
     text-align: center;
+    backdrop-filter: blur(20px);
    
 }
 
@@ -328,20 +328,81 @@ nav {
 
 .bigmovie__landing {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 32px;
+    padding-bottom: 220px;
+    padding-top: 96px;
 }
-.bigmovie__tile
-.bigmovie__img--box
-.bigmovie__img
-.bigmovie__info--box
-.bigmovie__title
-.runtime
-.genre
-.actors
-.director
-.rated
-.plot
-.year
+
+.bigmovie__tile {
+    width: 90%;
+    border: solid rgb(36, 169, 241);
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    flex-direction: row;
+    backdrop-filter: blur(20px);
+}
+
+.bigmovie__img--box {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 24px;
+}
+
+.bigmovie__img {
+    max-height: 70vh;
+}
+
+.bigmovie__break {
+    width: 100%;
+    border: 1px solid rgb(24, 24, 24, 0.30);
+    margin: 2px 0px;
+}
+
+.bigmovie__info--box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: gold;
+    gap: 10px;
+}
+.bigmovie__title {
+    font-size: 44px;
+    margin-bottom: 8px;
+}
+
+.plot {
+    font-style: italic;
+    font-size: 14px;
+}
+
+.movie__actions {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 36px;
+    gap: 24px;
+  }
+  
+  .action-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    width: 100px; /* Adjust icon size */
+    color: #333; /* Adjust icon color */
+    transition: color 0.3s ease;
+  }
+  
+  .action-btn:hover {
+    color: #007bff; /* Change color on hover */
+    cursor: not-allowed;
+  }
+  
 
 /* MODAL */
 
