@@ -9,8 +9,10 @@
     box-sizing: border-box;
 }
 
+
 .body {
     width: 100%;
+    max-width: 900px;
 }
 
 a {
@@ -201,10 +203,36 @@ nav {
     right: 16px;
     border: none;
     background-color: transparent;
+    color: rgb(14, 77, 179);
 }
 
 .movies__found {
     color: gold;
+}
+
+/* filter  */
+
+.filter--label {
+    color: gold;
+}
+
+.movie-filter {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.movie-filter label {
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: 24px;
+}
+  
+.movie-filter select {
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
 }
 
 /* movies  */
@@ -407,14 +435,13 @@ nav {
 /* MODAL */
 
 .login__modal {
-position: absolute;
+position: fixed;
 top: 50%;
 left: 50%;
 transform: translate(-50%, -50%);
 width: 50%;
-height: 440px;
+height: 400px;
 max-width: 600px;
-visibility: hidden;
 border-radius: 20px;
 overflow: hidden;
 background-image: url(./assets/movie-curtains.jpg);
@@ -423,7 +450,7 @@ background-size: cover;
 background-repeat: center no-repeat;
 display: flex;
 align-items: center;
-z-index: -3;
+z-index: 50;
 transition: visibility 300ms, z-index 300ms, box-shadow 300ms ease;
 }
 
@@ -521,12 +548,16 @@ transition: visibility 300ms, z-index 300ms, box-shadow 300ms ease;
     transition: all 300ms ease;
 }
 
-.fa-xmark {
+.xmark {
     position: absolute;
     font-size: 24px;
     top: 12px;
     right: 18px;
     color: gold;
+}
+
+.xmark:hover {
+    color: rgb(14, 77, 179);
 }
 
 /* footer  */
