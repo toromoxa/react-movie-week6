@@ -45,7 +45,7 @@ const Hero = () => {
             searchTerm={searchTerm}
             movies={movies} />
         </div>
-            <Footer />
+        <Footer />
     </div>
   )
 }

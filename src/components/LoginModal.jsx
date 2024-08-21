@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
+import ClearIcon from '@mui/icons-material/Clear';
 
-const LoginModal = () => {
+const LoginModal = ({ onClose }) => {
     
   return (
     <div>
         <div className="login__modal">
         <div className="modal__input--container">
-            <i className="fa-solid fa-xmark click"></i>
+            <ClearIcon sx={{ fontSize: 30 }} className='xmark click' onClick={onClose} />
             <div className="modal__input--row">
                 <h3 className="modal--title">Start Streaming!</h3>
                 <form id="login__form" action="">
@@ -19,7 +20,7 @@ const LoginModal = () => {
                         <input className="modal--input" type="password" placeholder="password"></input>
                     </div>  
                 </form>
-                <button className="login--action">GO!</button> 
+                <button className="login--action" onClick={onClose}>GO!</button> 
             </div>
         </div>
     </div>

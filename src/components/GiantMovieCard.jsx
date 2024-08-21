@@ -23,12 +23,6 @@ const GiantMovieCard = () => {
     fetchMovieDetails();
   }, []);
 
-  // if (!movieDetails) {
-  //     return (
-  //         <><Skeleton /></>
-  //     )
-  // }
-
   return (
     <div className="bigmovie__landing">
       <div className="bigmovie__tile">

@@ -1,4 +1,5 @@
-import React, {useState} from 'react'
+import React, {useState} from 'react';
+import SearchIcon from '@mui/icons-material/Search';
 
 const SearchBar = ({ onSearch, fetchMovies }) => {
     const [input, setInput] = useState('');
@@ -36,7 +37,7 @@ const SearchBar = ({ onSearch, fetchMovies }) => {
                     <button 
                     className='btn--search'
                     onClick={() => clickSearchBtn()}
-                    >GO!</button>
+                    ><SearchIcon sx={{ fontSize: 50 }} className='click' /></button>
                 </div>
             </div>
         </div>
