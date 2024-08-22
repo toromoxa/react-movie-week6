@@ -19,20 +19,30 @@ const Hero = () => {
 
     const [movies, setMovies] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
+    const [error, setError] = useState(null);
 
     const handleInputChange = (movieTitle) => {
         setSearchTerm(movieTitle);
     }
     
     async function fetchMovies() {
-        const { data } = await axios.get(`http://www.omdbapi.com/?s=${searchTerm}&apikey=c24e8ce7&`)
-        setMovies(data.Search)
+        try {
+            const { data } = await axios.get(`http://www.omdbapi.com/?s=${searchTerm}&apikey=c24e8ce7&`)
+            setMovies(data.Search)
+        } catch (error) {
+            setError(error.message);
+            console.error('Error fetching data:', error);
+        }
     }
     
     useEffect(() => {
         fetchMovies();
         console.log(movies)
     }, [])
+
+    if (error) {
+        return <div>{error}</div>;
+    }
 
   return (
     <div>

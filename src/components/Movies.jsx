@@ -1,28 +1,31 @@
-import React, {useEffect, useState} from "react";
-import Skeleton from "./Skeleton";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import MovieFilter from './MovieFilter'
+import MovieFilter from "./MovieFilter";
+import SkeletonMovieCard from "./skeletons/SkeletonMovieCard";
 
 const Movies = ({ searchTerm, movies = [] }) => {
   const [sortedMovies, setSortedMovies] = useState(movies);
-  const [sortType, setSortType] = useState('releaseDate');
+  const [sortType, setSortType] = useState("releaseDate");
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     const sortMovies = () => {
       if (!Array.isArray(movies) || movies.length === 0) {
+        setLoading(true)
         // If movies is not an array or is empty, don't sort
         return;
       }
+
       let sortedArray = [...movies];
-      if (sortType === 'releaseDate') {
+      if (sortType === "releaseDate") {
         sortedArray.sort((a, b) => new Date(b.Year) - new Date(a.Year));
-        console.log('sorting by Year released')
-      } else if (sortType === 'title') {
+        console.log("sorting by Year released");
+      } else if (sortType === "title") {
         sortedArray.sort((a, b) => a.Title.localeCompare(b.Title));
-        console.log('sorting by Title A-Z')
-      } else if (sortType === 'runtime') {
+        console.log("sorting by Title A-Z");
+      } else if (sortType === "runtime") {
         sortedArray.sort((a, b) => parseInt(a.Runtime) - parseInt(b.Runtime));
-        console.log('sorting by movie length')
+        console.log("sorting by movie length");
       }
       setSortedMovies(sortedArray);
     };
@@ -43,32 +46,32 @@ const Movies = ({ searchTerm, movies = [] }) => {
             <MovieFilter onFilterChange={handleFilterChange} />
           </div>
           <div className="movies__results">
-            {movies ? (
-              sortedMovies.slice(0, 6).map((movie) => (
-                <Link
-                  to={`/movie/${movie.imdbID}`}
-                  key={movie.imdbID}
-                  className="movie"
-                >
-                  <div className="movie__tile">
-                    <figure className="movie__img--box">
-                      <img
-                        className="movie__img"
-                        src={movie.Poster}
-                        alt="movie poster"
-                      />
-                    </figure>
-                    <div className="horizontal__break"></div>
-                    <div className="movie__info--box">
-                      <h2 className="movie__title">{movie.Title}</h2>
-                      <h3 className="year">{movie.Year}</h3>
+            {movies
+              ? sortedMovies.slice(0, 6).map((movie) => (
+                  <Link
+                    to={`/movie/${movie.imdbID}`}
+                    key={movie.imdbID}
+                    className="movie"
+                  >
+                    <div className="movie__tile">
+                      <figure className="movie__img--box">
+                        <img
+                          className="movie__img"
+                          src={movie.Poster}
+                          alt="movie poster"
+                        />
+                      </figure>
+                      <div className="horizontal__break"></div>
+                      <div className="movie__info--box">
+                        <h2 className="movie__title">{movie.Title}</h2>
+                        <h3 className="year">{movie.Year}</h3>
+                      </div>
                     </div>
-                  </div>
-                </Link>
-              ))
-            ) : (
-              <Skeleton />
-            )}
+                  </Link>
+                ))
+              : loading && new Array([6]).map((card) => (
+                  <SkeletonMovieCard key={card} />
+                ))}
           </div>
         </div>
       </section>

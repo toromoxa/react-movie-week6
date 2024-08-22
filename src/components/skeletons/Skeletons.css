@@ -1,0 +1,39 @@
+/* SkeletonMovies.css */
+.skeleton {
+    background-color: #e0e0e0;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    animation: shimmer 1.5s infinite;
+}
+
+.skeleton.title {
+    width: 50%;
+    height: 36px;
+    margin-bottom: 28px;
+}
+
+.skeleton.text {
+    width: 80%;
+    height: 12px;
+    margin-bottom: 12px;
+}
+
+.skeleton.card {
+    width: 200px;
+    height: 300px;
+}  
+
+
+.skeleton.poster {
+    width: 250px;
+    height: 400px;
+}  
+  
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}

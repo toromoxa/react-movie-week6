@@ -19,6 +19,10 @@ const Footer = () => {
                     </li>
                 </ul>
             </div>
+            <div className="copyright--box">
+                <p>Copyright © 2024</p>
+                <h6>toromoxa studios</h6>
+            </div>
         </div>
     </footer>
   )
