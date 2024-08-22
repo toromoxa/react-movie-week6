@@ -15,13 +15,12 @@ const Footer = () => {
                         <Link className='footer__link' to='/'>Home</Link>
                     </li>
                     <li className='footer__item'>
-                        <Link className='footer__link' >Contact Us</Link>
+                        <Link className='footer__link' >Contact</Link>
                     </li>
                 </ul>
             </div>
             <div className="copyright--box">
                 <p>Copyright © 2024</p>
-                <h6>toromoxa studios</h6>
             </div>
         </div>
     </footer>

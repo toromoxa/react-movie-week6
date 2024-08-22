@@ -20,6 +20,7 @@ const Nav = () => {
     <nav>
         <div className="container">
             <div className="row">
+                <h1 className='nav__title'>Mega <br /> Movies <br /> Multiverse</h1>
                 <Link to={'/'}>
                     <figure className="nav__logo">
                         <img 
@@ -29,8 +30,8 @@ const Nav = () => {
                     </figure>
                 </Link>
                 <ul className="nav__link--list">
-                    <li className="nav__list--item click login">
-                        <a href="#" className="item__link item__link--primary" onClick={handleSignInClick} >Sign In</a>
+                    <li className="nav__list--item click">
+                        <a href="#" className="item__link--primary" onClick={handleSignInClick} >Sign In</a>
                     </li>
                 </ul>
             </div>

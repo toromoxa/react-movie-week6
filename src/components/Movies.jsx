@@ -6,12 +6,12 @@ import SkeletonMovieCard from "./skeletons/SkeletonMovieCard";
 const Movies = ({ searchTerm, movies = [] }) => {
   const [sortedMovies, setSortedMovies] = useState(movies);
   const [sortType, setSortType] = useState("releaseDate");
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const sortMovies = () => {
       if (!Array.isArray(movies) || movies.length === 0) {
-        setLoading(true)
+        setLoading(true);
         // If movies is not an array or is empty, don't sort
         return;
       }
@@ -38,44 +38,44 @@ const Movies = ({ searchTerm, movies = [] }) => {
   };
 
   return (
-    <div>
-      <section className="movies">
-        <div className="movie__tile--container">
-          <div className="movie__tile--row">
-            <h1 className="movies__found">Search Results for: {searchTerm}</h1>
+    <section className="movies">
+      <div className="results--container">
+        <div className="filter--row">
+          <div className="found__container">
+            <h1 className="movies--found">Search Results for:</h1>
+            <p className="search-title">{searchTerm}</p>
             <MovieFilter onFilterChange={handleFilterChange} />
           </div>
-          <div className="movies__results">
-            {movies
-              ? sortedMovies.slice(0, 6).map((movie) => (
-                  <Link
-                    to={`/movie/${movie.imdbID}`}
-                    key={movie.imdbID}
-                    className="movie"
-                  >
-                    <div className="movie__tile">
-                      <figure className="movie__img--box">
-                        <img
-                          className="movie__img"
-                          src={movie.Poster}
-                          alt="movie poster"
-                        />
-                      </figure>
-                      <div className="horizontal__break"></div>
-                      <div className="movie__info--box">
-                        <h2 className="movie__title">{movie.Title}</h2>
-                        <h3 className="year">{movie.Year}</h3>
-                      </div>
-                    </div>
-                  </Link>
-                ))
-              : loading && new Array([6]).map((card) => (
-                  <SkeletonMovieCard key={card} />
-                ))}
-          </div>
         </div>
-      </section>
-    </div>
+        <div className="movies__results">
+          {movies
+            ? sortedMovies.slice(0, 6).map((movie) => (
+                <Link
+                  to={`/movie/${movie.imdbID}`}
+                  key={movie.imdbID}
+                  className="movie"
+                >
+                  <div className="movie__tile">
+                    <figure className="movie__img--box">
+                      <img
+                        className="movie__img"
+                        src={movie.Poster}
+                        alt="movie poster"
+                      />
+                    </figure>
+                    <div className="horizontal__break"></div>
+                    <div className="movie__info--box">
+                      <h2 className="movie__title">{movie.Title}</h2>
+                      <h3 className="year">{movie.Year}</h3>
+                    </div>
+                  </div>
+                </Link>
+              ))
+            : loading &&
+              new Array([6]).map((card) => <SkeletonMovieCard key={card} />)}
+        </div>
+      </div>
+    </section>
   );
 };
 
