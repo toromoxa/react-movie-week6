@@ -287,6 +287,7 @@ nav {
 
 .movies__results {
     width: 100%;
+    height: 100%;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -295,6 +296,20 @@ nav {
     padding: 16px;
 }
 
+.couch--wrapper {
+    height: 100%;
+    margin: 0 auto;
+    padding: 75px 75px 50px 75px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+.couch--img {
+    width: 100%;
+    max-width: 750px;
+    transform: translateY(50px);
+}
 .movie {
     margin: 30px;
     width: calc(100% / 4);
@@ -361,18 +376,6 @@ nav {
     padding-top: 24px;
     font-size: 60px;
     color: rgb(14, 77, 179);
-}
-
-.movies__loading--film {
-    display: none !important;
-}
-
-.movies__loading .movies__loading--film {
-    display: block !important;
-}
-
-.fa-film {
-    animation: scale 700ms infinite;
 }
 
 @keyframes scale {
@@ -675,9 +678,6 @@ transition: all 300ms ease;
 }
 
 @media (max-width: 576px) {
-    nav {
-        height: 350px;
-    }
     .header__title {
         font-size: 30px;
     }

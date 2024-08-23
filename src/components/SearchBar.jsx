@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 
-const SearchBar = ({ onSearch, fetchMovies }) => {
+const SearchBar = ({ onSearch, fetchMovies, setLoading }) => {
   const [input, setInput] = useState("");
 
   const handleInputChange = (event) => {
@@ -12,7 +12,8 @@ const SearchBar = ({ onSearch, fetchMovies }) => {
 
   function clickSearchBtn() {
     fetchMovies();
-    console.log("button clicked");
+    setLoading(true)
+    console.log("button clicked -- loading true");
   }
 
   return (
@@ -29,7 +30,8 @@ const SearchBar = ({ onSearch, fetchMovies }) => {
             onKeyDown={(event) => {
               if (event.key === "Enter") {
                 fetchMovies();
-                console.log("enter pressed");
+                setLoading(true)
+                console.log("enter pressed -- loading is true");
               }
             }}
           />

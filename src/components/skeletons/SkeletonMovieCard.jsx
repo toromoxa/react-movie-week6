@@ -5,8 +5,8 @@ import Shimmer from "./Shimmer";
 
 const SkeletonMovieCard = () => {
   return (
-    <div className="skeleton-wrapper">
-      <div className="movie">
+    <div className="movie">
+      <div className="skeleton-wrapper">
         <div className="movie__tile">
           <figure className="movie__img--box">
             <SkeletonElement type="card" />
@@ -17,8 +17,8 @@ const SkeletonMovieCard = () => {
             <SkeletonElement type="text" />
           </div>
         </div>
-      </div>
       <Shimmer />
+      </div>
     </div>
   );
 };

@@ -12,6 +12,7 @@
     margin: auto;
     padding: 10px 16px;
     border-radius: 4px;
+    width: 100%;
 }
 
 .skeleton.title {
@@ -45,7 +46,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    animation: loading 1500ms infinite;
+    animation: loading 850ms infinite;
 }
 .shimmer {
     width: 50%;
