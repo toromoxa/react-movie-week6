@@ -28,7 +28,7 @@ const Hero = () => {
     async function fetchMovies() {
         try {
             const { data } = await axios.get(`http://www.omdbapi.com/?s=${searchTerm}&apikey=c24e8ce7&`)
-            setMovies(data.Search)
+            setMovies(data.Search);
         } catch (error) {
             setError(error.message);
             console.error('Error fetching data:', error);

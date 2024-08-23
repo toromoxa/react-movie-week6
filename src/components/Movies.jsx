@@ -10,9 +10,11 @@ const Movies = ({ searchTerm, movies = [] }) => {
 
   useEffect(() => {
     const sortMovies = () => {
+      
       if (!Array.isArray(movies) || movies.length === 0) {
-        setLoading(true);
         // If movies is not an array or is empty, don't sort
+        setLoading(true);
+        console.log('loading is true')
         return;
       }
 
@@ -48,7 +50,33 @@ const Movies = ({ searchTerm, movies = [] }) => {
           </div>
         </div>
         <div className="movies__results">
-          {movies
+          {loading && <SkeletonMovieCard />}
+          {loading
+            ? new Array([6]).map((card) => <SkeletonMovieCard key={card} />)
+            : sortedMovies.slice(0, 6).map((movie) => (
+                <Link
+                  to={`/movie/${movie.imdbID}`}
+                  key={movie.imdbID}
+                  className="movie"
+                >
+                  <div className="movie__tile">
+                    <figure className="movie__img--box">
+                      <img
+                        className="movie__img"
+                        src={movie.Poster}
+                        alt="movie poster"
+                      />
+                    </figure>
+                    <div className="horizontal__break"></div>
+                    <div className="movie__info--box">
+                      <h2 className="movie__title">{movie.Title}</h2>
+                      <h3 className="year">{movie.Year}</h3>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+
+          {/* {movies
             ? sortedMovies.slice(0, 6).map((movie) => (
                 <Link
                   to={`/movie/${movie.imdbID}`}
@@ -72,7 +100,7 @@ const Movies = ({ searchTerm, movies = [] }) => {
                 </Link>
               ))
             : loading &&
-              new Array([6]).map((card) => <SkeletonMovieCard key={card} />)}
+              new Array([6]).map((card) => <SkeletonMovieCard key={card} />)} */}
         </div>
       </div>
     </section>
