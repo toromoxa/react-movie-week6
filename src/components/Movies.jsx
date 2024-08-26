@@ -9,10 +9,10 @@ const Movies = ({ loading, searchTerm, movies = [] }) => {
 
   useEffect(() => {
     const sortMovies = () => {
-      // if (!Array.isArray(movies) || movies.length === 0) {
-      //   // If movies is not an array or is empty, don't sort
-      //   return;
-      // }
+      if (!Array.isArray(movies) || movies.length === 0) {
+        // If movies is not an array or is empty, don't sort
+        return;
+      }
 
       let sortedArray = [...movies];
       if (sortType === "releaseDate") {
