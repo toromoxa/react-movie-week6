@@ -16,7 +16,7 @@ const GiantMovieCard = () => {
   async function fetchMovieDetails() {
     try {
       const { data } = await axios.get(
-        `http://www.omdbapi.com/?i=${id}&apikey=c24e8ce7&`
+        `https://www.omdbapi.com/?i=${id}&apikey=c24e8ce7&`
       );
       setTimeout(() => {
         setMovieDetails(data);
