@@ -13,11 +13,12 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    max-width: 1200px;
+    /* max-width: 1200px; */
 }
 
 .body {
     width: 100%;
+    margin: 0 auto;
     max-width: 900px;
 }
 
@@ -138,7 +139,7 @@ nav {
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 900px;
+    /* max-width: 900px; */
     width: 100%;
 }
 
@@ -598,7 +599,7 @@ transition: all 300ms ease;
     font-weight: 700;
     border: none;
     border-radius: 50px;
-    cursor: pointer;
+    cursor: not-allowed;
 }
 
 .login--action:hover {
